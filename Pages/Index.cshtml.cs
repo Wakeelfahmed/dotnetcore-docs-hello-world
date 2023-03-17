@@ -20,39 +20,27 @@ public class IndexModel : PageModel
     {        
     }
 }
-namespace YourNamespace
+
+namespace YourNamespace.Controllers
 {
-    public class Startup
+    public class FormController : Controller
     {
-        public Startup(IConfiguration configuration)
+        // [HttpGet]
+        // public IActionResult Index()
+        // {
+        //     // Return the HTML form to the user
+        //     return View();
+        // }
+
+        [HttpPost]
+        public IActionResult SubmitForm(string name, string email)
         {
-            Configuration = configuration;
-        }
+            // Here, you can write your code to handle the form submission.
+            // You can access the form data through the 'name' and 'email' parameters.
+            // For example, you could save the data to a database or send an email.
 
-        public IConfiguration Configuration { get; }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllersWithViews();
-        }
-
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+            // After handling the form submission, you can return a response to the user.
+            return Content("Thanks for submitting the form!");
         }
     }
 }

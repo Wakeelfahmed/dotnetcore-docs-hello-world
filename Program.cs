@@ -13,6 +13,18 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+app.Use(async (context, next) =>
+{
+    // Set the content type of the response
+    context.Response.ContentType = "text/plain";
+    
+    // Set the status code of the response
+    context.Response.StatusCode = 200;
+    
+    // Write the response body
+    await context.Response.WriteAsync("Hello, world!");
+});
 // app.UseHttpsRedirection();
 
 app.UseStaticFiles(); // Serve static files from the wwwroot folder
