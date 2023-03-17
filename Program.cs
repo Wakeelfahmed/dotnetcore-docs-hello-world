@@ -17,6 +17,7 @@ if (!app.Environment.IsDevelopment())
 // app.UseHttpsRedirection();
 
 app.UseStaticFiles(); // Serve static files from the wwwroot folder
+// app.UseMiddleware<DummyResponseMiddleware>();
 
 app.UseRouting();
 
