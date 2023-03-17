@@ -18,6 +18,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseStaticFiles(); // Serve static files from the wwwroot folder
 // app.UseMiddleware<DummyResponseMiddleware>();
+app.MapGet("/", () => "Hello World!");
 
 app.UseRouting();
 
